@@ -1,0 +1,36 @@
+[project]
+name = "engineering_team"
+version = "0.1.0"
+description = "engineering-team using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+
+dependencies = [
+    "crewai==1.9.3",
+    "crewai-tools==0.76.0",
+    "apscheduler>=3.10,<4",
+    "lancedb==0.14.0",
+    "litellm>=1.75.3",
+    "onnxruntime==1.23.2",
+]
+
+
+[project.scripts]
+engineering_team = "engineering_team.main:run"
+run_crew = "engineering_team.main:run"
+train = "engineering_team.main:train"
+replay = "engineering_team.main:replay"
+test = "engineering_team.main:test"
+run_with_trigger = "engineering_team.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+
+[tool.uv.workspace]
+members = [
+    "sandbox",
+]
